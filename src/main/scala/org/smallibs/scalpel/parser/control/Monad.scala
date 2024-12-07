@@ -3,8 +3,10 @@ package org.smallibs.scalpel.parser.control
 import org.smallibs.scalpel.parser.Parsec
 import org.smallibs.scalpel.parser.Response.{Failure, Success}
 
-trait Monad:
-  def flatMap[E, A, B](f: A => Parsec[E, B])(ma: Parsec[E, A]): Parsec[E, B] = s =>
+trait Monad():
+  val parsec: Parsec
+
+  def flatMap[A, B](f: A => parsec.T[B])(ma: parsec.T[A]): parsec.T[B] = s =>
     ma(s) match
       case Failure(s, b) => Failure(s, b)
       case Success(a, s, b1) =>

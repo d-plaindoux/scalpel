@@ -5,7 +5,9 @@ import org.smallibs.scalpel.parser.Response.{Failure, Success}
 
 
 trait Satisfy:
-  def satisfy[E, A](p: Parsec[E, A])(f: A => Boolean): Parsec[E, A] = s =>
+  val parsec: Parsec
+
+  def satisfy[A](p: parsec.T[A])(f: A => Boolean): parsec.T[A] = s =>
     p(s) match
       case Failure(s, b) => Failure(s, b)
       case Success(a, ns, b) =>

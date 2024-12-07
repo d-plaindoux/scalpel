@@ -1,5 +1,6 @@
 package org.smallibs.scalpel.source
 
-trait Source[E]:
+trait Source[S]:
+  type E
 
-  def next(): (Option[E], Source[E])
+  def next(s: S): (Option[E], S)

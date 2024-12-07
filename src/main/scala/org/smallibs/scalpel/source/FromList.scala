@@ -1,7 +1,9 @@
 package org.smallibs.scalpel.source
 
-case class FromList[A](value: List[A]) extends Source[A]:
-  override def next() =
-    value match
-      case Nil => (None, this)
-      case h :: tail => (Some(h), FromList(tail))
+class FromList[A] extends Source[List[A]]:
+  type E = A
+
+  override def next(s: List[A]) =
+    s match
+      case Nil => (None, s)
+      case h :: tail => (Some(h), tail)

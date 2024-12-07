@@ -5,21 +5,21 @@ import org.scalatest.funsuite.AnyFunSuiteLike
 class FromStringTest extends AnyFunSuiteLike {
 
   test("An empty stream string produces nothing") {
-    val s = FromString("")
+    val s = FromString()
 
-    assertResult((None, s))(s.next())
+    assertResult((None, ""))(s.next(""))
   }
 
   test("An a single stream string produces a result") {
-    val s = FromString("a")
+    val s = FromString()
 
-    assertResult((Some('a'), FromString("")))(s.next())
+    assertResult((Some('a'), ""))(s.next("a"))
   }
 
   test("An a stream string produces a result") {
-    val s = FromString("abc")
+    val s = FromString()
 
-    assertResult((Some('a'), FromString("bc")))(s.next())
+    assertResult((Some('a'), "bc"))(s.next("abc"))
   }
 
 }

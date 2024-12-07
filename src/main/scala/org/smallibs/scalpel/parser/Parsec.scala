@@ -2,5 +2,9 @@ package org.smallibs.scalpel.parser
 
 import org.smallibs.scalpel.source.Source
 
-type Parsec[E, A] = Source[E] => Response[A, Source[E]]
+trait Parsec:
+  type S
+  val source: Source[S]
+  type T[A] = S => Response[A, S]
+
 
