@@ -1,3 +1,5 @@
+import sbt.Keys.libraryDependencies
+
 val scala3Version = "3.5.2"
 
 lazy val root = project
@@ -8,5 +10,8 @@ lazy val root = project
 
     scalaVersion := scala3Version,
 
-    libraryDependencies += "org.scalameta" %% "munit" % "1.0.0" % Test
+    libraryDependencies ++= Seq(
+      "org.scalatest" %% "scalatest" % "3.2.19" % "test",
+      "org.scalacheck" %% "scalacheck" % "1.18.1" % "test"
+    )
   )
