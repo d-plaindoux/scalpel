@@ -9,9 +9,9 @@ class AnyElementTest extends AnyFunSuiteLike {
 
   test("Should retrieve on element") {
     val anyElement = new AnyElement {
-      override val parsec: Parsec {type S = List[Int]} = new Parsec {
+      val parsec: Parsec {type S = List[Int]} = new Parsec {
         type S = List[Int]
-        override val source: FromList[Int] = FromList[Int]()
+        val source = FromList[Int]()
       }
     }
 
