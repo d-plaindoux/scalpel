@@ -1,7 +1,8 @@
 package org.smallibs.scalpel.source
 
-class FromString extends Source[String]:
+class FromString extends Source:
   type E = Char
+  type S = String
 
   override def next(s: String) =
     s match

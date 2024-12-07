@@ -6,4 +6,4 @@ trait Parsec:
   type S
   type T[A] = S => Response[A, S]
 
-  val source: Source[S]
+  val source: Source {type S = Parsec.this.S}
