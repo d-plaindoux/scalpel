@@ -1,21 +1,16 @@
 package org.smallibs.scalpel.parser.atomic
 
 import org.scalatest.funsuite.AnyFunSuiteLike
-import org.smallibs.scalpel.parser.Parsec
-import org.smallibs.scalpel.parser.Response.Success
-import org.smallibs.scalpel.source.FromList
+import org.smallibs.scalpel.parser.{Parsec, Response}
 
 class AnyElementTest extends AnyFunSuiteLike {
 
-  test("Should retrieve on element") {
-    val anyElement = new AnyElement {
-      val parsec: Parsec {type S = List[Int]} = new Parsec {
-        type S = List[Int]
-        val source = FromList[Int]()
-      }
+  test("Should retrieve one element") {
+    val api = new AnyElement {
+      val parsec: Parsec {type S = List[Int]} = Parsec.fromList[Int]()
     }
 
-    assertResult(Success(1, List(2, 3), true))(anyElement.any(List(1, 2, 3)))
+    assertResult(Response.success(1, List(2, 3), true))(api.any(List(1, 2, 3)))
   }
 
 }

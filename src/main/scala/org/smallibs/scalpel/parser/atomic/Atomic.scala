@@ -1,4 +1,4 @@
 package org.smallibs.scalpel.parser.atomic
 
-trait Atomic extends AnyElement, Lookahead
+trait Atomic extends AnyElement
 

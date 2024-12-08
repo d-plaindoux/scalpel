@@ -1,17 +1,18 @@
 package org.smallibs.scalpel.parser.control
 
-import org.smallibs.scalpel.parser.Parsec
-import org.smallibs.scalpel.parser.Response.{Failure, Success}
+import org.smallibs.scalpel.parser.Response.{failure, success}
+import org.smallibs.scalpel.parser.{Parsec, Response}
 
 import scala.annotation.targetName
 
-trait Functor:
+trait Map:
   val parsec: Parsec
 
   def map[A, B](f: A => B)(ma: parsec.T[A]): parsec.T[B] = s =>
-    ma(s) match
-      case Failure(s, b) => Failure(s, b)
-      case Success(a, s, b) => Success(f(a), s, b)
+    ma(s).fold(
+      (a, s, b) => success(f(a), s, b),
+      (r, s, b) => failure(r, s, b)
+    )
 
   extension [A](ma: parsec.T[A])
     @targetName("reverse map")

@@ -1,3 +1,3 @@
 package org.smallibs.scalpel.parser.control
 
-trait Control extends Functor with Monad
+trait Control extends Map with FlatMap
