@@ -2,7 +2,7 @@
 
 A Parser combinator library for Scala 3
 
-### License
+## License
 
 Copyright 2024, Didier Plaindoux
 
