@@ -1,13 +1,11 @@
 package org.smallibs.scalpel.parser.control
 
 import org.smallibs.scalpel.parser.Response.{failure, success}
-import org.smallibs.scalpel.parser.{Parsec, Response}
+import org.smallibs.scalpel.parser.{Parser, Response}
 
 import scala.annotation.targetName
 
-trait Map:
-  val parsec: Parsec
-
+trait Map extends Parser:
   def map[A, B](f: A => B)(ma: parsec.T[A]): parsec.T[B] = s =>
     ma(s).fold(
       (a, s, b) => success(f(a), s, b),

@@ -1,12 +1,11 @@
 package org.smallibs.scalpel.parser.flow
 
 import org.smallibs.scalpel.parser.Response.{failure, success}
-import org.smallibs.scalpel.parser.{Parsec, Response}
+import org.smallibs.scalpel.parser.{Parsec, Parser, Response}
 
 import scala.annotation.targetName
 
-trait Or:
-  val parsec: Parsec
+trait Or extends Parser:
 
   def or[A, B](lhd: parsec.T[A], rhd: parsec.T[B]): parsec.T[A | B] = s =>
     lhd(s).fold(

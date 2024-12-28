@@ -1,12 +1,9 @@
 package org.smallibs.scalpel.parser.control
 
 import org.smallibs.scalpel.parser.Response.{failure, success}
-import org.smallibs.scalpel.parser.{Parsec, Response}
+import org.smallibs.scalpel.parser.{Parsec, Parser, Response}
 
-trait FlatMap:
-  type P <: Parsec
-  val parsec: P
-
+trait FlatMap extends Parser:
   def flatMap[A, B](f: A => parsec.T[B])(ma: parsec.T[A]): parsec.T[B] = s =>
     ma(s).fold(
       (a, s, b1) => f(a)(s).fold(
