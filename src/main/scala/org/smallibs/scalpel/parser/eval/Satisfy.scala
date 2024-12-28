@@ -13,6 +13,7 @@ trait Satisfy extends Parser:
       (r, s, b) => failure(r, s, b)
     )
 
+trait SatisfyInfix extends Satisfy:
   extension [A](p: parsec.T[A])
     @targetName("Satisfy parsec")
     def ?>(f: A => Boolean): parsec.T[A] =

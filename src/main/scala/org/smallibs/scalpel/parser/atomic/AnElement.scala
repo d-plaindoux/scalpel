@@ -3,10 +3,10 @@
 package org.smallibs.scalpel.parser.atomic
 
 import org.smallibs.scalpel.parser.Parser
-import org.smallibs.scalpel.parser.eval.Satisfy
+import org.smallibs.scalpel.parser.eval.SatisfyInfix
 
 import scala.language.postfixOps
 
-trait AnElement extends Parser with AnyElement with Satisfy:
+trait AnElement extends Parser with AnyElement with SatisfyInfix:
   def element(e: E): parsec.T[E] =
-    satisfy(any, (a => a == e))
+    any ?> (a => a == e)
