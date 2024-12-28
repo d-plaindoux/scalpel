@@ -4,7 +4,8 @@ import org.smallibs.scalpel.parser.Response.{failure, success}
 import org.smallibs.scalpel.parser.{Parsec, Response}
 
 trait FlatMap:
-  val parsec: Parsec
+  type P <: Parsec
+  val parsec: P
 
   def flatMap[A, B](f: A => parsec.T[B])(ma: parsec.T[A]): parsec.T[B] = s =>
     ma(s).fold(

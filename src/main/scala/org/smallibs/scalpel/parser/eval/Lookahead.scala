@@ -1,11 +1,9 @@
 package org.smallibs.scalpel.parser.eval
 
 import org.smallibs.scalpel.parser.Response.{failure, success}
-import org.smallibs.scalpel.parser.{Parsec, Response}
+import org.smallibs.scalpel.parser.{Parsec, Parser, Response}
 
-trait Lookahead:
-  val parsec: Parsec
-
+trait Lookahead extends Parser:
   def lookahead[A](p: parsec.T[A]): parsec.T[A] = s =>
     p(s).fold(
       (a, _, _) => success(a, s, false),

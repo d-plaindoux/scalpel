@@ -8,7 +8,10 @@ class FailTest extends AnyFunSuiteLike {
 
   test("Should fail without any reason") {
     val api = new Fail {
-      val parsec: Parsec {type S = String} = Parsec.fromString()
+      type E = Char
+      type S = String
+
+      val parsec = Parsec.fromString()
     }
 
     assertResult(failure(None, "", false))(api.fail()(""))
@@ -16,7 +19,10 @@ class FailTest extends AnyFunSuiteLike {
 
   test("Should fail with a reason") {
     val api = new Fail {
-      val parsec: Parsec {type S = String} = Parsec.fromString()
+      type E = Char
+      type S = String
+
+      val parsec = Parsec.fromString()
     }
 
     assertResult(failure(Some("Boom"), "", false))(api.fail(Some("Boom"))(""))

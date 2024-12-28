@@ -8,7 +8,9 @@ class ReturnTest extends AnyFunSuiteLike {
 
   test("Should success with a given value") {
     val api = new Return {
-      val parsec: Parsec {type S = String} = Parsec.fromString()
+      type E = Char
+      type S = String
+      val parsec = Parsec.fromString()
     }
 
     assertResult(success(1, "", false))(api.returns(1)(""))
