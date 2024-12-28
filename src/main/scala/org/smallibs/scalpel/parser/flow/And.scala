@@ -1,12 +1,11 @@
 package org.smallibs.scalpel.parser.flow
 
 import org.smallibs.scalpel.parser.Response.{failure, success}
-import org.smallibs.scalpel.parser.{Parsec, Parser, Response}
+import org.smallibs.scalpel.parser.{Parser, Response, control}
 
 import scala.annotation.targetName
 
 trait And extends Parser:
-
   def and[A, B](lhd: parsec.T[A], rhd: parsec.T[B]): parsec.T[(A, B)] = s =>
     lhd(s).fold(
       (a, s, b1) => rhd(s).fold(
@@ -16,7 +15,13 @@ trait And extends Parser:
       (r, s, b) => failure(r, s, b)
     )
 
-  trait AndInfix:
-    extension [A](lhd: parsec.T[A])
-      @targetName("or parsec")
-      def <+>[B](rhd: parsec.T[B]): parsec.T[(A, B)] = and(lhd, rhd)
+trait AndInfix extends And with control.MapInfix:
+  extension [A](lhd: parsec.T[A])
+    @targetName("or parsec")
+    def <+>[B](rhd: parsec.T[B]): parsec.T[(A, B)] = and(lhd, rhd)
+
+    @targetName("or right parsec")
+    def >+>[B](rhd: parsec.T[B]): parsec.T[B] = lhd <+> rhd <&> (v => v._2)
+
+    @targetName("or left parsec")
+    def <+<[B](rhd: parsec.T[B]): parsec.T[A] = lhd <+> rhd <&> (v => v._1)

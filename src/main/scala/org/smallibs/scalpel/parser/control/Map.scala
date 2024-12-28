@@ -12,6 +12,7 @@ trait Map extends Parser:
       (r, s, b) => failure(r, s, b)
     )
 
+trait MapInfix extends Map:
   extension [A](ma: parsec.T[A])
     @targetName("reverse map")
     def <&>[B](f: A => B): parsec.T[B] = map(f)(ma)

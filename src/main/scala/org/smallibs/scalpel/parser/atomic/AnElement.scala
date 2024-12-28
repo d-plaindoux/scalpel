@@ -7,12 +7,6 @@ import org.smallibs.scalpel.parser.eval.Satisfy
 
 import scala.language.postfixOps
 
-trait AnElement extends Parser:
-  lazy val modules = new AnyElement with Satisfy:
-    type E = AnElement.this.E
-    type S = AnElement.this.S
-
-    val parsec = AnElement.this.parsec
-
+trait AnElement extends Parser with AnyElement with Satisfy:
   def element(e: E): parsec.T[E] =
-    modules.satisfy(modules.any, (a => a == e))
+    satisfy(any, (a => a == e))
