@@ -1,7 +1,7 @@
 package org.smallibs.scalpel.parser.control
 
 import org.smallibs.scalpel.parser.Response.{failure, success}
-import org.smallibs.scalpel.parser.{Parser, Response}
+import org.smallibs.scalpel.parser.{Parsec, Parser, Response}
 
 import scala.annotation.targetName
 

@@ -6,7 +6,7 @@ import org.smallibs.scalpel.parser.{Parsec, Response}
 class AnElementTest extends AnyFunSuiteLike {
 
   test("Should retrieve one element") {
-    val api = new AnElement {
+    val api = new AnElement.Api {
       type E = Int
       type S = List[Int]
 
@@ -17,7 +17,7 @@ class AnElementTest extends AnyFunSuiteLike {
   }
 
   test("Should not retrieve one element") {
-    val api = new AnElement {
+    val api = new AnElement.Api {
       type E = Int
       type S = List[Int]
 

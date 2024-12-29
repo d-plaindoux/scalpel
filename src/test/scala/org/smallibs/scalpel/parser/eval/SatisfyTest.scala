@@ -7,7 +7,7 @@ import org.smallibs.scalpel.parser.Response.{failure, success}
 class SatisfyTest extends AnyFunSuiteLike {
 
   test("Should satisfy the condition") {
-    val api = new Satisfy.Api with Return {
+    val api = new Satisfy.Api with Return.Api {
       type E = Unit
       type S = List[Unit]
 
@@ -18,7 +18,7 @@ class SatisfyTest extends AnyFunSuiteLike {
   }
 
   test("Should not satisfy the condition") {
-    val api = new Satisfy.Api with Return {
+    val api = new Satisfy.Api with Return.Api {
       type E = Unit
       type S = List[Unit]
 

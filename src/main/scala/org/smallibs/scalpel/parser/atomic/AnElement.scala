@@ -7,6 +7,7 @@ import org.smallibs.scalpel.parser.eval.Satisfy
 
 import scala.language.postfixOps
 
-trait AnElement extends Parser with AnyElement with Satisfy.Infix:
-  def element(e: E): parsec.T[E] =
-    any ?> (a => a == e)
+object AnElement:
+  trait Api extends Parser with AnyElement.Api with Satisfy.Infix:
+    def element(e: E): parsec.T[E] =
+      any ?> (a => a == e)

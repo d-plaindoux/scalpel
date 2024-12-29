@@ -6,7 +6,7 @@ import org.smallibs.scalpel.parser.atomic.AnElement
 trait Chars extends Parser:
   type E = Char
 
-  private lazy val anElement = new AnElement:
+  private lazy val anElement = new AnElement.Api:
     type E = Char
     type S = Chars.this.parsec.S
 

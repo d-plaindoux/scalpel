@@ -7,7 +7,7 @@ import org.smallibs.scalpel.parser.{Parsec, Response}
 class FailTest extends AnyFunSuiteLike {
 
   test("Should fail without any reason") {
-    val api = new Fail {
+    val api = new Fail.Api {
       type E = Char
       type S = String
 
@@ -18,7 +18,7 @@ class FailTest extends AnyFunSuiteLike {
   }
 
   test("Should fail with a reason") {
-    val api = new Fail {
+    val api = new Fail.Api {
       type E = Char
       type S = String
 

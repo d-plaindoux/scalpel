@@ -7,7 +7,7 @@ import org.smallibs.scalpel.parser.{Parsec, Response}
 class ReturnTest extends AnyFunSuiteLike {
 
   test("Should success with a given value") {
-    val api = new Return {
+    val api = new Return.Api {
       type E = Char
       type S = String
       val parsec = Parsec.fromString()

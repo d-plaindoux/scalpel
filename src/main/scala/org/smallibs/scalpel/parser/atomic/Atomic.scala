@@ -1,4 +1,5 @@
 package org.smallibs.scalpel.parser.atomic
 
-trait Atomic extends AnyElement with AnElement
+object Atomic:
+  trait Api extends AnyElement.Api with AnElement.Api
 
