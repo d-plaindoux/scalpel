@@ -1,4 +1,6 @@
 package org.smallibs.scalpel.parser.flow
 
-trait Flow extends Or with And
+object Flow:
+  trait Api extends Or.Api with And.Api
 
+  trait Infix extends Or.Infix with And.Infix

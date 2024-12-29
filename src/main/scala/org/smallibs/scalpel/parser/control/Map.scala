@@ -5,14 +5,15 @@ import org.smallibs.scalpel.parser.{Parser, Response}
 
 import scala.annotation.targetName
 
-trait Map extends Parser:
-  def map[A, B](f: A => B)(ma: parsec.T[A]): parsec.T[B] = s =>
-    ma(s).fold(
-      (a, s, b) => success(f(a), s, b),
-      (r, s, b) => failure(r, s, b)
-    )
+object Map:
+  trait Api extends Parser:
+    def map[A, B](f: A => B)(ma: parsec.T[A]): parsec.T[B] = s =>
+      ma(s).fold(
+        (a, s, b) => success(f(a), s, b),
+        (r, s, b) => failure(r, s, b)
+      )
 
-trait MapInfix extends Map:
-  extension [A](ma: parsec.T[A])
-    @targetName("reverse map")
-    def <&>[B](f: A => B): parsec.T[B] = map(f)(ma)
+  trait Infix extends Api:
+    extension [A](ma: parsec.T[A])
+      @targetName("map_infix_reverse")
+      def <&>[B](f: A => B): parsec.T[B] = map(f)(ma)

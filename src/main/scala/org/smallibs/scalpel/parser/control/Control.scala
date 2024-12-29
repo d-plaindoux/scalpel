@@ -1,3 +1,3 @@
 package org.smallibs.scalpel.parser.control
 
-trait Control extends Map with FlatMap
+trait Control extends Map.Api with FlatMap.Api
