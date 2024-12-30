@@ -6,7 +6,7 @@ import org.smallibs.scalpel.parser.{Parsec, Response}
 class CharTest extends AnyFunSuiteLike {
 
   test("Should retrieve one char") {
-    val api = new Chars {
+    val api = new Chars.Api {
       type S = List[Char]
 
       val parsec = Parsec.fromList[Char]()
@@ -16,7 +16,7 @@ class CharTest extends AnyFunSuiteLike {
   }
 
   test("Should not retrieve one char") {
-    val api = new Chars {
+    val api = new Chars.Api {
       type S = List[Char]
 
       val parsec = Parsec.fromList[Char]()
