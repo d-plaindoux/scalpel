@@ -19,10 +19,10 @@ object And:
   trait Infix extends Api with control.Map.Infix:
     extension [A](lhd: parsec.T[A])
       @targetName("and_infix")
-      def <+>[B](rhd: parsec.T[B]): parsec.T[(A, B)] = and(lhd, rhd)
+      def <~>[B](rhd: parsec.T[B]): parsec.T[(A, B)] = and(lhd, rhd)
 
       @targetName("and_infix_right")
-      def >+>[B](rhd: parsec.T[B]): parsec.T[B] = lhd <+> rhd <&> (v => v._2)
+      def ~>[B](rhd: parsec.T[B]): parsec.T[B] = lhd <~> rhd <&> (v => v._2)
 
       @targetName("and_infix_left")
-      def <+<[B](rhd: parsec.T[B]): parsec.T[A] = lhd <+> rhd <&> (v => v._1)
+      def <~[B](rhd: parsec.T[B]): parsec.T[A] = lhd <~> rhd <&> (v => v._1)
