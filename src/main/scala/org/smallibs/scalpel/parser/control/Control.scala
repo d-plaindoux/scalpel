@@ -1,7 +1,11 @@
 package org.smallibs.scalpel.parser.control
 
 object Control:
-  trait Api extends Map.Api with FlatMap.Api
+  trait Api
+    extends Bind.Api
+      with Map.Api
 
-  trait Infix extends Map.Infix with FlatMap.Infix
+  trait Infix
+    extends Bind.Infix
+      with Map.Infix
 

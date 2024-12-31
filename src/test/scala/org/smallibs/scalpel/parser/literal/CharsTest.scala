@@ -8,7 +8,7 @@ class CharsTest extends AnyFunSuiteLike {
   private def givenCharsParser =
     new Chars.Api:
       type S = List[Char]
-      val parsec = Parsec.fromList[Char]()
+      val parsec = Parsec.fromList[Char]
 
   // TESTS
 

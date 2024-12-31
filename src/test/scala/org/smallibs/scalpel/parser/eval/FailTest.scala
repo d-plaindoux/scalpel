@@ -11,7 +11,7 @@ class FailTest extends AnyFunSuiteLike {
       type E = Char
       type S = String
 
-      val parsec = Parsec.fromString()
+      val parsec = Parsec.fromString
     }
 
     assertResult(failure(None, "", false))(api.fail()(""))
@@ -22,7 +22,7 @@ class FailTest extends AnyFunSuiteLike {
       type E = Char
       type S = String
 
-      val parsec = Parsec.fromString()
+      val parsec = Parsec.fromString
     }
 
     assertResult(failure(Some("Boom"), "", false))(api.fail(Some("Boom"))(""))

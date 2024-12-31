@@ -9,8 +9,9 @@ enum Response[A, S]:
       case Success(a, s, b) => success(a, s, b)
       case Failure(r, s, b) => failure(r, s, b)
 
-object Response {
-  def success[A, S](a: A, s: S, b: Boolean): Response[A, S] = Response.Success(a, s, b)
+object Response:
+  def success[A, S](a: A, s: S, b: Boolean): Response[A, S] =
+    Response.Success(a, s, b)
 
-  def failure[A, S](r: Option[String], s: S, b: Boolean): Response[A, S] = Response.Failure(r, s, b)
-}
+  def failure[A, S](r: Option[String], s: S, b: Boolean): Response[A, S] =
+    Response.Failure(r, s, b)

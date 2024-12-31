@@ -11,7 +11,7 @@ class SatisfyTest extends AnyFunSuiteLike {
       type E = Unit
       type S = List[Unit]
 
-      val parsec = Parsec.fromList()
+      val parsec = Parsec.fromList
     }
 
     assertResult(success('a', List(), false))(api.satisfy(api.returns('a'), a => a == 'a')(List()))
@@ -22,7 +22,7 @@ class SatisfyTest extends AnyFunSuiteLike {
       type E = Unit
       type S = List[Unit]
 
-      val parsec = Parsec.fromList()
+      val parsec = Parsec.fromList
     }
 
     assertResult(failure(None, List(), false))(api.satisfy(api.returns('b'), a => a == 'a')(List()))

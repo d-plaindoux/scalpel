@@ -1,6 +1,11 @@
 package org.smallibs.scalpel.parser.flow
 
 object Flow:
-  trait Api extends Or.Api with And.Api
+  trait Api
+    extends And.Api
+      with Occurrence.Api
+      with Or.Api
 
-  trait Infix extends Or.Infix with And.Infix
+  trait Infix
+    extends And.Infix
+      with Or.Infix

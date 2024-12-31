@@ -10,7 +10,7 @@ class AnElementTest extends AnyFunSuiteLike {
       type E = Int
       type S = List[Int]
 
-      val parsec = Parsec.fromList[Int]()
+      val parsec = Parsec.fromList
     }
 
     assertResult(Response.success(1, List(2, 3), true))(api.element(1)(List(1, 2, 3)))
@@ -21,7 +21,7 @@ class AnElementTest extends AnyFunSuiteLike {
       type E = Int
       type S = List[Int]
 
-      val parsec = Parsec.fromList[Int]()
+      val parsec = Parsec.fromList
     }
 
     assertResult(Response.failure(None, List(1, 2, 3), false))(api.element(2)(List(1, 2, 3)))

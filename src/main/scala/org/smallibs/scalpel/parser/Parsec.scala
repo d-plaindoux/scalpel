@@ -13,14 +13,14 @@ trait Parsec:
   }
 
 object Parsec:
-  def fromString() =
+  def fromString =
     new Parsec {
       type E = Char
       type S = String
       val source = FromString()
     }
 
-  def fromList[A]() =
+  def fromList[A] =
     new Parsec {
       type S = List[A]
       type E = A

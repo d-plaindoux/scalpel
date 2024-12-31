@@ -10,7 +10,7 @@ class ReturnTest extends AnyFunSuiteLike {
     val api = new Return.Api {
       type E = Char
       type S = String
-      val parsec = Parsec.fromString()
+      val parsec = Parsec.fromString
     }
 
     assertResult(success(1, "", false))(api.returns(1)(""))
