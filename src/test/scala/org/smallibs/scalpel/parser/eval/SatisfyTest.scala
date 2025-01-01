@@ -4,27 +4,16 @@ import org.scalatest.funsuite.AnyFunSuiteLike
 import org.smallibs.scalpel.parser.Parsec
 import org.smallibs.scalpel.parser.Response.{failure, success}
 
-class SatisfyTest extends AnyFunSuiteLike {
+class SatisfyTest extends AnyFunSuiteLike with Satisfy.Api with Return.Api {
+  type E = Unit
+  type S = List[Unit]
+  val parsec = Parsec.fromList
 
   test("Should satisfy the condition") {
-    val api = new Satisfy.Api with Return.Api {
-      type E = Unit
-      type S = List[Unit]
-
-      val parsec = Parsec.fromList
-    }
-
-    assertResult(success('a', List(), false))(api.satisfy(api.returns('a'), a => a == 'a')(List()))
+    assertResult(success('a', List(), false))(satisfy(returns('a'), a => a == 'a')(List()))
   }
 
   test("Should not satisfy the condition") {
-    val api = new Satisfy.Api with Return.Api {
-      type E = Unit
-      type S = List[Unit]
-
-      val parsec = Parsec.fromList
-    }
-
-    assertResult(failure(None, List(), false))(api.satisfy(api.returns('b'), a => a == 'a')(List()))
+    assertResult(failure(None, List(), false))(satisfy(returns('b'), a => a == 'a')(List()))
   }
 }

@@ -17,7 +17,7 @@ object Chars:
     def char(e: Char): parsec.T[Char] =
       api.satisfy(api.any, _ == e)
 
-    def charIn(e: List[Char]): parsec.T[Char] =
+    def charIn(e: Char*): parsec.T[Char] =
       api.satisfy(api.any, e.contains)
 
     def charIn(e: String): parsec.T[Char] =

@@ -8,4 +8,5 @@ object Flow:
 
   trait Infix
     extends And.Infix
+      with Occurrence.Infix
       with Or.Infix

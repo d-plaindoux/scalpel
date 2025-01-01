@@ -7,7 +7,8 @@ import org.smallibs.scalpel.parser.control.Map
 object Number:
   trait Api extends Parser with Chars.Api with Occurrence.Api with Map.Infix:
     def natural: parsec.T[Int] =
-      rep(digit) <&> (e => e.mkString.toInt)
+      r
+      ep(digit) <&> (e => e.mkString.toInt)
 
 
 
