@@ -9,7 +9,7 @@ object Chars:
     type E = Char
 
     private lazy val api = new AnyElement.Api with Satisfy.Api:
-      type E = Char
+      type E = Api.this.E
       type S = Api.this.parsec.S
 
       val parsec = Api.this.parsec
