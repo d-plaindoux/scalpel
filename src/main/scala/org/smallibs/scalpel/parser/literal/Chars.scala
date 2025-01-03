@@ -23,6 +23,9 @@ object Chars:
     def charIn(e: String): parsec.T[Char] =
       api.satisfy(api.any, e.contains)
 
+    def charNotIn(e: Char*): parsec.T[Char] =
+      api.satisfy(api.any, c => !e.contains(c))
+
     def alpha: parsec.T[Char] =
       api.satisfy(api.any, e => (e >= 'a' && e <= 'z') || (e >= 'A' && e <= 'Z'))
 

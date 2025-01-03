@@ -16,6 +16,18 @@ object And:
         (r, s, b) => failure(r, s, b)
       )
 
+    def seq[A](l: List[parsec.T[A]]): parsec.T[List[A]] = s =>
+      l match
+        case Nil => success(Nil, s, false)
+        case h::t =>
+          h(s).fold(
+            (a, s, b1) => seq(t)(s).fold(
+              (l, s, b2) => success(a :: l, s, b1 || b2),
+              (r, s, b2) => failure(r, s, b1 || b2)
+            ),
+            (r, s, b) => failure(r, s, b)
+          )
+
   trait Infix extends Api with control.Map.Infix:
     extension [A](lhd: parsec.T[A])
       @targetName("and_infix")
