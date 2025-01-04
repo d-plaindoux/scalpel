@@ -17,14 +17,20 @@ object Chars:
     def char(e: Char): parsec.T[Char] =
       api.satisfy(api.any, _ == e)
 
-    def charIn(e: Char*): parsec.T[Char] =
+    def charIn(e: List[Char]): parsec.T[Char] =
       api.satisfy(api.any, e.contains)
+
+    def charIn(e: Char*): parsec.T[Char] =
+      charIn(e.toList)
 
     def charIn(e: String): parsec.T[Char] =
       api.satisfy(api.any, e.contains)
 
-    def charNotIn(e: Char*): parsec.T[Char] =
+    def charNotIn(e: List[Char]): parsec.T[Char] =
       api.satisfy(api.any, c => !e.contains(c))
+
+    def charNotIn(e: Char*): parsec.T[Char] =
+      charNotIn(e.toList)
 
     def alpha: parsec.T[Char] =
       api.satisfy(api.any, e => (e >= 'a' && e <= 'z') || (e >= 'A' && e <= 'Z'))

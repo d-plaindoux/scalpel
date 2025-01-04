@@ -17,6 +17,18 @@ object Or:
         )
       )
 
+    def choices[A](l: List[parsec.T[A]]): parsec.T[A] = s =>
+      l match
+        case Nil => failure(None, s, false)
+        case h :: t =>
+          h(s).fold(
+            (a, s, b) => success(a, s, b),
+            (r, ns, b) =>
+              if b
+              then failure(r, ns, b)
+              else choices(t)(s)
+          )
+
   trait Infix extends Api with control.Map.Infix:
     extension [A](lhd: parsec.T[A])
       @targetName("or_infix")
