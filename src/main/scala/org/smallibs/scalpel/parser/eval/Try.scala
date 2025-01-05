@@ -1,7 +1,8 @@
 package org.smallibs.scalpel.parser.eval
 
-import org.smallibs.scalpel.parser.Response.{failure, success}
-import org.smallibs.scalpel.parser.{Parser, Response}
+import org.smallibs.scalpel.parser.Parser
+import org.smallibs.scalpel.response.Response
+import org.smallibs.scalpel.response.Response.{failure, success}
 
 object Try:
   trait Api extends Parser:

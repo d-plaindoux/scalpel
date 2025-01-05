@@ -1,4 +1,4 @@
-package org.smallibs.scalpel.parser
+package org.smallibs.scalpel.response
 
 enum Response[A, S]:
   private case Success(value: A, source: S, consumed: Boolean)

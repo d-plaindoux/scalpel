@@ -1,7 +1,8 @@
 package org.smallibs.scalpel.parser.atomic
 
 import org.scalatest.funsuite.AnyFunSuiteLike
-import org.smallibs.scalpel.parser.{Parsec, Response}
+import org.smallibs.scalpel.parser.Parsec
+import org.smallibs.scalpel.response.Response
 
 class AnyElementTest extends AnyFunSuiteLike with AnyElement.Api {
   type E = Int

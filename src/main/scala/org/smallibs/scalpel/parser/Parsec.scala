@@ -1,5 +1,6 @@
 package org.smallibs.scalpel.parser
 
+import org.smallibs.scalpel.response.Response
 import org.smallibs.scalpel.source.{FromList, FromString, Source}
 
 trait Parsec:

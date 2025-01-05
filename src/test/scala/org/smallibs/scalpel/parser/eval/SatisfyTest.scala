@@ -2,7 +2,7 @@ package org.smallibs.scalpel.parser.eval
 
 import org.scalatest.funsuite.AnyFunSuiteLike
 import org.smallibs.scalpel.parser.Parsec
-import org.smallibs.scalpel.parser.Response.{failure, success}
+import org.smallibs.scalpel.response.Response.{failure, success}
 
 class SatisfyTest extends AnyFunSuiteLike with Satisfy.Api with Return.Api {
   type E = Unit

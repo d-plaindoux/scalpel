@@ -1,9 +1,10 @@
 package org.smallibs.scalpel.parser.flow
 
 import org.scalatest.funsuite.AnyFunSuiteLike
+import org.smallibs.scalpel.parser.Parsec
 import org.smallibs.scalpel.parser.flow.Occurrence
 import org.smallibs.scalpel.parser.literal.Chars
-import org.smallibs.scalpel.parser.{Parsec, Response}
+import org.smallibs.scalpel.response.Response
 
 class OccurrenceTest extends AnyFunSuiteLike with Chars.Api with Occurrence.Infix {
   type S = List[Char]

@@ -2,8 +2,9 @@
 
 package org.smallibs.scalpel.parser.atomic
 
-import org.smallibs.scalpel.parser.Response.{failure, success}
-import org.smallibs.scalpel.parser.{Parser, Response}
+import org.smallibs.scalpel.parser.Parser
+import org.smallibs.scalpel.response.Response
+import org.smallibs.scalpel.response.Response.{failure, success}
 
 object AnyElement:
   trait Api extends Parser:

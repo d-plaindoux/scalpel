@@ -1,9 +1,11 @@
 package org.smallibs.scalpel.parser.eval
 
 import org.scalatest.funsuite.AnyFunSuiteLike
-import org.smallibs.scalpel.parser.Response.{failure, success}
+import org.smallibs.scalpel.parser.Parsec
 import org.smallibs.scalpel.parser.flow.Or
-import org.smallibs.scalpel.parser.{Parsec, Response}
+import org.smallibs.scalpel.response.Response
+import org.smallibs.scalpel.response.Response.{failure, success}
+
 
 class TryTest extends AnyFunSuiteLike with Fail.Api with Return.Api with Or.Infix with Try.Api {
   type E = Char

@@ -1,7 +1,8 @@
 package org.smallibs.scalpel.parser.flow
 
-import org.smallibs.scalpel.parser.Response.{failure, success}
-import org.smallibs.scalpel.parser.{Parser, Response, control}
+import org.smallibs.scalpel.parser.{Parser, control}
+import org.smallibs.scalpel.response.Response
+import org.smallibs.scalpel.response.Response.{failure, success}
 
 import scala.annotation.targetName
 

@@ -1,8 +1,9 @@
 package org.smallibs.scalpel.parser.eval
 
 import org.scalatest.funsuite.AnyFunSuiteLike
-import org.smallibs.scalpel.parser.Response.failure
-import org.smallibs.scalpel.parser.{Parsec, Response}
+import org.smallibs.scalpel.parser.Parsec
+import org.smallibs.scalpel.response.Response
+import org.smallibs.scalpel.response.Response.failure
 
 class FailTest extends AnyFunSuiteLike with Fail.Api {
   type E = Char

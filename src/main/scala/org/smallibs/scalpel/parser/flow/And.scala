@@ -1,7 +1,8 @@
 package org.smallibs.scalpel.parser.flow
 
-import org.smallibs.scalpel.parser.Response.{failure, success}
-import org.smallibs.scalpel.parser.{Parser, Response, control}
+import org.smallibs.scalpel.parser.{Parser, control}
+import org.smallibs.scalpel.response.Response
+import org.smallibs.scalpel.response.Response.{failure, success}
 
 import scala.annotation.targetName
 
@@ -19,7 +20,7 @@ object And:
     def seq[A](l: List[parsec.T[A]]): parsec.T[List[A]] = s =>
       l match
         case Nil => success(Nil, s, false)
-        case h::t =>
+        case h :: t =>
           h(s).fold(
             (a, s, b1) => seq(t)(s).fold(
               (l, s, b2) => success(a :: l, s, b1 || b2),

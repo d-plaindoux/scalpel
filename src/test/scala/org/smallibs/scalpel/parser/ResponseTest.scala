@@ -1,7 +1,7 @@
 package org.smallibs.scalpel.parser
 
 import org.scalatest.funsuite.AnyFunSuiteLike
-import org.smallibs.scalpel.parser.Response.{failure, success}
+import org.smallibs.scalpel.response.Response.{failure, success}
 
 class ResponseTest extends AnyFunSuiteLike {
 
