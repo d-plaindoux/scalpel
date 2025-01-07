@@ -2,10 +2,10 @@ package org.smallibs.scalpel.parser.literal
 
 import org.smallibs.scalpel.parser.Parser
 import org.smallibs.scalpel.parser.control.Map
-import org.smallibs.scalpel.parser.flow.{And, Occurrence}
+import org.smallibs.scalpel.parser.flow.Flow
 
 object Numbers:
-  trait Api extends Parser with Chars.Api with Occurrence.Api with Map.Infix with And.Infix:
+  trait Api extends Parser with Chars.Api with Flow.Infix with Map.Infix:
     def natural: parsec.T[Int] =
       Str.natural <&> (e => e.toInt)
 
